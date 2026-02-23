@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustracion bienestar</title>
+  <desc id="desc">Composicion abstracta para articulo de bienestar</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#170a7a" />
+      <stop offset="54%" stop-color="#2f47be" />
+      <stop offset="100%" stop-color="#2294ff" />
+    </linearGradient>
+    <radialGradient id="moon" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f7fbff" />
+      <stop offset="100%" stop-color="#e4efff" />
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="16" stdDeviation="15" flood-color="#061349" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <ellipse cx="1025" cy="118" rx="210" ry="124" fill="#7f63ff" opacity="0.2" />
+  <ellipse cx="200" cy="590" rx="265" ry="135" fill="#6cd2ff" opacity="0.17" />
+
+  <path d="M-40 520 C 170 468 362 548 598 500 C 788 462 944 485 1240 430 L1240 700 L-40 700 Z" fill="#9addff" opacity="0.2" />
+
+  <g filter="url(#shadow)">
+    <circle cx="348" cy="236" r="84" fill="url(#moon)" fill-opacity="0.93" />
+    <path d="M308 236c0-41 31-75 70-80-5 13-8 27-8 41 0 39 22 73 54 90-12 15-31 25-51 25-36 0-65-34-65-76z" fill="#d5e6ff" />
+
+    <rect x="520" y="284" width="220" height="148" rx="22" fill="#f7fbff" fill-opacity="0.16" />
+    <line x1="562" y1="330" x2="696" y2="330" stroke="#f7fbff" stroke-width="12" stroke-linecap="round" />
+    <line x1="562" y1="370" x2="664" y2="370" stroke="#f7fbff" stroke-width="12" stroke-linecap="round" />
+
+    <path d="M840 492c52-50 130-42 165 20-54-9-111 17-132 67-41-23-52-60-33-87z" fill="#f7fbff" fill-opacity="0.92" />
+    <path d="M827 430c17 39 2 92-42 128" fill="none" stroke="#f7fbff" stroke-width="11" stroke-linecap="round" />
+    <circle cx="900" cy="350" r="15" fill="#f7fbff" />
+    <circle cx="943" cy="324" r="11" fill="#f7fbff" />
+    <circle cx="954" cy="372" r="9" fill="#f7fbff" />
+  </g>
+</svg>

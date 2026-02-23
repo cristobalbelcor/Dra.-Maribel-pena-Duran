@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustracion ansiedad</title>
+  <desc id="desc">Composicion abstracta para articulo de ansiedad</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1a0b7a" />
+      <stop offset="55%" stop-color="#3049c0" />
+      <stop offset="100%" stop-color="#1d94ff" />
+    </linearGradient>
+    <radialGradient id="orbA" cx="0.28" cy="0.22" r="0.5">
+      <stop offset="0%" stop-color="#6fd8ff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#6fd8ff" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#09144f" flood-opacity="0.42" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" />
+  <rect width="1200" height="700" fill="url(#orbA)" opacity="0.5" />
+
+  <ellipse cx="205" cy="560" rx="265" ry="145" fill="#4ac3ff" opacity="0.22" />
+  <ellipse cx="1040" cy="120" rx="250" ry="130" fill="#7e5dff" opacity="0.2" />
+  <path d="M-40 520 C 210 420 350 560 550 500 C 725 448 905 480 1240 420 L 1240 700 L -40 700 Z" fill="#8ad1ff" opacity="0.19" />
+
+  <g filter="url(#shadow)">
+    <circle cx="370" cy="335" r="145" fill="#f8fbff" fill-opacity="0.12" />
+    <path d="M325 246c-41 24-69 73-69 129 0 77 54 139 120 139 30 0 58-13 80-35" fill="none" stroke="#f5f9ff" stroke-width="14" stroke-linecap="round" />
+    <path d="M445 248c38 24 63 71 63 124" fill="none" stroke="#f5f9ff" stroke-width="14" stroke-linecap="round" />
+    <circle cx="525" cy="305" r="22" fill="#f5f9ff" />
+    <circle cx="586" cy="260" r="16" fill="#f5f9ff" />
+    <circle cx="610" cy="336" r="17" fill="#f5f9ff" />
+    <line x1="525" y1="305" x2="586" y2="260" stroke="#f5f9ff" stroke-width="8" stroke-linecap="round" />
+    <line x1="525" y1="305" x2="610" y2="336" stroke="#f5f9ff" stroke-width="8" stroke-linecap="round" />
+    <line x1="586" y1="260" x2="610" y2="336" stroke="#f5f9ff" stroke-width="8" stroke-linecap="round" />
+    <path d="M315 532 H 646" stroke="#f5f9ff" stroke-width="10" stroke-linecap="round" stroke-opacity="0.78" />
+  </g>
+
+  <circle cx="1020" cy="570" r="63" fill="#f8fbff" fill-opacity="0.18" />
+  <circle cx="1090" cy="555" r="28" fill="#f8fbff" fill-opacity="0.26" />
+</svg>
