@@ -149,15 +149,19 @@ h4 {
 }
 
 .brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  display: grid;
-  place-content: center;
-  background: linear-gradient(130deg, #edc8b5, #f6ece2);
-  color: #6f4634;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 1.1rem;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-meta {
