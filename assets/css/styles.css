@@ -110,7 +110,7 @@ h4 {
 
 .section-top {
   padding-top: 130px;
-  padding-bottom: 68px;
+  padding-bottom: 122px;
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
@@ -123,9 +123,9 @@ h4 {
   position: absolute;
   left: -10%;
   right: -10%;
-  bottom: -130px;
-  height: 250px;
-  border-radius: 55% 45% 0 0 / 45% 45% 0 0;
+  bottom: -185px;
+  height: 220px;
+  border-radius: 54% 46% 0 0 / 44% 44% 0 0;
   background: #f7faff;
 }
 
@@ -146,7 +146,7 @@ h4 {
 
 .section-top .page-intro,
 .section-top .muted {
-  color: rgba(231, 241, 255, 0.88);
+  color: rgba(243, 248, 255, 0.96);
 }
 
 .label {
@@ -978,7 +978,7 @@ textarea:focus {
 
   .section-top {
     padding-top: 116px;
-    padding-bottom: 56px;
+    padding-bottom: 92px;
   }
 
   .hero {
