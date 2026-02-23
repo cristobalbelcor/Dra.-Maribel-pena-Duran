@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto y Agenda | Dra. Maribel Peña Duran</title>
+    <meta
+      name="description"
+      content="Agenda tu sesión, envía consultas y acepta consentimiento informado digital con la Dra. Maribel Peña Duran."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="main-shell">
+      <header class="page-header">
+        <div class="container nav-wrap">
+          <a class="brand" href="index.html" aria-label="Ir al inicio">
+            <span class="brand-mark">MP</span>
+            <span class="brand-meta">
+              <span class="brand-name">Dra. Maribel Peña Duran</span>
+              <span class="brand-sub">Psicología clínica</span>
+            </span>
+          </a>
+          <button class="mobile-toggle" type="button" data-nav-toggle aria-expanded="false">Menú</button>
+          <nav class="nav" data-nav>
+            <a class="nav-link" data-page="index.html" href="index.html">Inicio</a>
+            <a class="nav-link" data-page="sobre-mi.html" href="sobre-mi.html">Sobre mí</a>
+            <a class="nav-link" data-page="servicios.html" href="servicios.html">Servicios</a>
+            <a class="nav-link" data-page="blog.html" href="blog.html">Blog</a>
+            <a class="nav-link" data-page="testimonios.html" href="testimonios.html">Testimonios</a>
+            <a class="nav-link" data-page="contacto.html" href="contacto.html">Contacto</a>
+            <a class="nav-link" data-page="admision.html" href="admision.html">Admisión</a>
+            <a class="nav-link" data-page="portal.html" href="portal.html">Portal</a>
+            <a class="btn btn-primary nav-cta" data-link="ghlCalendar" href="#">Agendar cita</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-top">
+          <div class="container">
+            <span class="label reveal">Contacto profesional</span>
+            <h1 class="page-title reveal" style="margin-top: 16px">Agenda, consulta y acepta tu consentimiento digital</h1>
+            <p class="muted page-intro reveal">
+              Completa el formulario para solicitar tu primera cita o resolver dudas. También puedes agendar directo desde
+              calendario online.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container split">
+            <article class="form-shell reveal">
+              <h2 style="font-size: 1.6rem">Formulario de contacto</h2>
+              <p class="muted" style="margin-top: 8px">Respuesta estimada en menos de 24 horas hábiles.</p>
+
+              <form data-form data-required="name,email,phone,message,consent_privacy,consent_terms" data-storage="dra-maribel-contactos">
+                <div class="success-banner" data-success>
+                  Tu mensaje fue enviado correctamente. En breve recibirás respuesta por correo o WhatsApp.
+                </div>
+
+                <div class="grid-form">
+                  <div class="field">
+                    <label for="name">Nombre completo</label>
+                    <input id="name" name="name" type="text" placeholder="Ej. Laura Pérez" />
+                    <span class="error" data-error="name">Ingresa tu nombre.</span>
+                  </div>
+                  <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" placeholder="tu@email.com" />
+                    <span class="error" data-error="email">Ingresa un correo válido.</span>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+57 300 000 0000" />
+                    <span class="error" data-error="phone">Ingresa un número de contacto.</span>
+                  </div>
+                  <div class="field">
+                    <label for="service">Servicio de interés</label>
+                    <select id="service" name="service">
+                      <option value="">Selecciona una opción</option>
+                      <option>Sesión individual</option>
+                      <option>Terapia de pareja</option>
+                      <option>Evaluación psicológica</option>
+                      <option>Membresía mensual</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="message">Motivo de consulta</label>
+                    <textarea id="message" name="message" placeholder="Cuéntame brevemente qué te gustaría trabajar en terapia"></textarea>
+                    <span class="error" data-error="message">Describe tu motivo de consulta.</span>
+                  </div>
+                </div>
+
+                <label class="check-row">
+                  <input type="checkbox" name="consent_privacy" />
+                  <span>
+                    Acepto el tratamiento de mis datos personales conforme a la política de privacidad y Ley 1581 de 2012.
+                  </span>
+                </label>
+                <span class="error" data-error="consent_privacy">Debes aceptar la política de privacidad.</span>
+
+                <label class="check-row">
+                  <input type="checkbox" name="consent_terms" />
+                  <span>
+                    Acepto la política de cancelación (50% del valor si se cancela con menos de 24 horas de anticipación).
+                  </span>
+                </label>
+                <span class="error" data-error="consent_terms">Debes aceptar los términos de cancelación.</span>
+
+                <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+                <p class="helper">Al enviar este formulario aceptas ser contactado por correo, SMS o WhatsApp.</p>
+              </form>
+            </article>
+
+            <div class="reveal" style="display: grid; gap: 18px">
+              <article class="card">
+                <h3>Agenda directa</h3>
+                <p class="muted">Reserva tu cita en línea con disponibilidad actualizada en tiempo real.</p>
+                <a class="btn btn-primary" style="margin-top: 12px" data-link="ghlCalendar" href="#">Abrir calendario</a>
+              </article>
+              <article class="card">
+                <h3>Canales de atención</h3>
+                <ul class="list-check">
+                  <li>Correo: <a href="mailto:contacto@dramaribel.com">contacto@dramaribel.com</a></li>
+                  <li>WhatsApp profesional: enlace directo automatizado.</li>
+                  <li>Horario: lunes a viernes, 8:00 a.m. - 7:00 p.m.</li>
+                  <li>Modalidad: virtual y presencial.</li>
+                </ul>
+                <a class="btn btn-soft" style="margin-top: 12px" data-link="whatsappBusiness" href="#">Escribir por WhatsApp</a>
+              </article>
+              <article class="card">
+                <h3>Automatizaciones activas</h3>
+                <p class="muted">
+                  Confirmación inmediata + recordatorios a 24h y 1h por WhatsApp, SMS y correo para reducir inasistencia.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <h3 class="footer-title">Dra. Maribel Peña Duran</h3>
+            <p>Contacto seguro con consentimiento informado y flujos de atención automatizados.</p>
+            <p style="margin-top: 10px">No. licencia profesional: [COLPSIC-00000]</p>
+          </div>
+          <div>
+            <h3 class="footer-title">Navegación</h3>
+            <ul>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="admision.html">Formulario de admisión</a></li>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+              <li><a href="portal.html">Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-title">Legal y contacto</h3>
+            <ul>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+              <li><a href="mailto:contacto@dramaribel.com">contacto@dramaribel.com</a></li>
+              <li><a data-link="whatsappBusiness" href="#">WhatsApp profesional</a></li>
+              <li>© <span data-year></span> Todos los derechos reservados</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Admisión | Dra. Maribel Peña Duran</title>
+    <meta
+      name="description"
+      content="Completa tu intake form antes de la primera sesión: contexto clínico, motivo de consulta y consentimientos digitales."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="main-shell">
+      <header class="page-header">
+        <div class="container nav-wrap">
+          <a class="brand" href="index.html" aria-label="Ir al inicio">
+            <span class="brand-mark">MP</span>
+            <span class="brand-meta">
+              <span class="brand-name">Dra. Maribel Peña Duran</span>
+              <span class="brand-sub">Psicología clínica</span>
+            </span>
+          </a>
+          <button class="mobile-toggle" type="button" data-nav-toggle aria-expanded="false">Menú</button>
+          <nav class="nav" data-nav>
+            <a class="nav-link" data-page="index.html" href="index.html">Inicio</a>
+            <a class="nav-link" data-page="sobre-mi.html" href="sobre-mi.html">Sobre mí</a>
+            <a class="nav-link" data-page="servicios.html" href="servicios.html">Servicios</a>
+            <a class="nav-link" data-page="blog.html" href="blog.html">Blog</a>
+            <a class="nav-link" data-page="testimonios.html" href="testimonios.html">Testimonios</a>
+            <a class="nav-link" data-page="contacto.html" href="contacto.html">Contacto</a>
+            <a class="nav-link" data-page="admision.html" href="admision.html">Admisión</a>
+            <a class="nav-link" data-page="portal.html" href="portal.html">Portal</a>
+            <a class="btn btn-primary nav-cta" data-link="ghlCalendar" href="#">Agendar cita</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-top">
+          <div class="container">
+            <span class="label reveal">Ingreso clínico seguro</span>
+            <h1 class="page-title reveal" style="margin-top: 16px">Formulario de admisión (intake form)</h1>
+            <p class="muted page-intro reveal">
+              Este cuestionario permite iniciar tu proceso con mayor claridad. La información se maneja con
+              confidencialidad profesional y política de datos vigente.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <article class="form-shell reveal">
+              <h2 style="font-size: 1.6rem">Cuestionario previo a primera consulta</h2>
+              <p class="muted" style="margin-top: 8px">
+                Completa todos los campos relevantes para que tu primera sesión sea más efectiva.
+              </p>
+
+              <form
+                data-form
+                data-required="name,email,phone,birth_date,city,reason,history,emergency_contact,consent_data,consent_confidentiality,consent_cancellation"
+                data-storage="dra-maribel-admision"
+              >
+                <div class="success-banner" data-success>
+                  Tu formulario fue enviado. Recibirás confirmación y próximos pasos por correo o WhatsApp.
+                </div>
+
+                <div class="grid-form">
+                  <div class="field">
+                    <label for="name">Nombre completo</label>
+                    <input id="name" name="name" type="text" placeholder="Nombre y apellidos" />
+                    <span class="error" data-error="name">Ingresa tu nombre completo.</span>
+                  </div>
+                  <div class="field">
+                    <label for="birth_date">Fecha de nacimiento</label>
+                    <input id="birth_date" name="birth_date" type="date" />
+                    <span class="error" data-error="birth_date">Ingresa tu fecha de nacimiento.</span>
+                  </div>
+                  <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" placeholder="tu@email.com" />
+                    <span class="error" data-error="email">Ingresa tu correo electrónico.</span>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Teléfono de contacto</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+57 300 000 0000" />
+                    <span class="error" data-error="phone">Ingresa un teléfono válido.</span>
+                  </div>
+                  <div class="field">
+                    <label for="city">Ciudad / país</label>
+                    <input id="city" name="city" type="text" placeholder="Ej. Bogotá, Colombia" />
+                    <span class="error" data-error="city">Ingresa ciudad y país.</span>
+                  </div>
+                  <div class="field">
+                    <label for="modality">Modalidad preferida</label>
+                    <select id="modality" name="modality">
+                      <option value="">Selecciona una modalidad</option>
+                      <option>Virtual</option>
+                      <option>Presencial</option>
+                      <option>Mixta</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="reason">Motivo principal de consulta</label>
+                    <textarea id="reason" name="reason" placeholder="Describe la situación que te trae a terapia"></textarea>
+                    <span class="error" data-error="reason">Describe tu motivo principal.</span>
+                  </div>
+                  <div class="field full">
+                    <label for="history">Antecedentes clínicos relevantes</label>
+                    <textarea id="history" name="history" placeholder="Tratamientos previos, medicación actual, diagnósticos, etc."></textarea>
+                    <span class="error" data-error="history">Ingresa antecedentes relevantes.</span>
+                  </div>
+                  <div class="field full">
+                    <label for="goals">Objetivos que deseas lograr</label>
+                    <textarea id="goals" name="goals" placeholder="¿Qué cambios esperas alcanzar en este proceso?"></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="emergency_contact">Contacto de emergencia (nombre y teléfono)</label>
+                    <input id="emergency_contact" name="emergency_contact" type="text" placeholder="Ej. Ana Pérez - +57 310 000 0000" />
+                    <span class="error" data-error="emergency_contact">Ingresa un contacto de emergencia.</span>
+                  </div>
+                </div>
+
+                <label class="check-row">
+                  <input type="checkbox" name="consent_data" />
+                  <span>
+                    Autorizo tratamiento de datos personales conforme Ley 1581 de 2012 y política de Habeas Data.
+                  </span>
+                </label>
+                <span class="error" data-error="consent_data">Debes autorizar tratamiento de datos.</span>
+
+                <label class="check-row">
+                  <input type="checkbox" name="consent_confidentiality" />
+                  <span>
+                    Acepto términos de confidencialidad, límites éticos y alcance del servicio psicológico.
+                  </span>
+                </label>
+                <span class="error" data-error="consent_confidentiality">Debes aceptar confidencialidad.</span>
+
+                <label class="check-row">
+                  <input type="checkbox" name="consent_cancellation" />
+                  <span>
+                    Acepto política de cancelación (50% de cobro por cancelación con menos de 24 horas de aviso).
+                  </span>
+                </label>
+                <span class="error" data-error="consent_cancellation">Debes aceptar política de cancelación.</span>
+
+                <button class="btn btn-primary" type="submit">Enviar formulario de admisión</button>
+                <p class="helper">
+                  Para implementación productiva, conecta este formulario a Supabase o CRM clínico con cifrado y control
+                  de acceso.
+                </p>
+              </form>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container cta-band reveal">
+            <div>
+              <h2 style="font-size: clamp(1.5rem, 3.6vw, 2.2rem)">¿Prefieres iniciar con llamada breve?</h2>
+              <p class="muted" style="margin-top: 8px">
+                Puedes agendar una llamada de orientación de 15 minutos antes de completar el proceso.
+              </p>
+            </div>
+            <a class="btn btn-primary" data-link="ghlDiscoveryCall" href="#">Agendar llamada</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <h3 class="footer-title">Dra. Maribel Peña Duran</h3>
+            <p>Formulario de ingreso clínico con foco en contexto, seguridad y confidencialidad.</p>
+            <p style="margin-top: 10px">No. licencia profesional: [COLPSIC-00000]</p>
+          </div>
+          <div>
+            <h3 class="footer-title">Navegación</h3>
+            <ul>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+              <li><a href="portal.html">Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-title">Legal y contacto</h3>
+            <ul>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+              <li><a href="mailto:contacto@dramaribel.com">contacto@dramaribel.com</a></li>
+              <li><a data-link="whatsappBusiness" href="#">WhatsApp profesional</a></li>
+              <li>© <span data-year></span> Todos los derechos reservados</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

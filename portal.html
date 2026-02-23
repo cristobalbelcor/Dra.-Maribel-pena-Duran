@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal del Cliente | Dra. Maribel Peña Duran</title>
+    <meta
+      name="description"
+      content="Portal privado para pacientes: historial de citas, facturas, recursos terapéuticos y gestión de próximas sesiones."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="main-shell">
+      <header class="page-header">
+        <div class="container nav-wrap">
+          <a class="brand" href="index.html" aria-label="Ir al inicio">
+            <span class="brand-mark">MP</span>
+            <span class="brand-meta">
+              <span class="brand-name">Dra. Maribel Peña Duran</span>
+              <span class="brand-sub">Psicología clínica</span>
+            </span>
+          </a>
+          <button class="mobile-toggle" type="button" data-nav-toggle aria-expanded="false">Menú</button>
+          <nav class="nav" data-nav>
+            <a class="nav-link" data-page="index.html" href="index.html">Inicio</a>
+            <a class="nav-link" data-page="sobre-mi.html" href="sobre-mi.html">Sobre mí</a>
+            <a class="nav-link" data-page="servicios.html" href="servicios.html">Servicios</a>
+            <a class="nav-link" data-page="blog.html" href="blog.html">Blog</a>
+            <a class="nav-link" data-page="testimonios.html" href="testimonios.html">Testimonios</a>
+            <a class="nav-link" data-page="contacto.html" href="contacto.html">Contacto</a>
+            <a class="nav-link" data-page="admision.html" href="admision.html">Admisión</a>
+            <a class="nav-link" data-page="portal.html" href="portal.html">Portal</a>
+            <a class="btn btn-primary nav-cta" data-link="ghlCalendar" href="#">Agendar cita</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-top">
+          <div class="container">
+            <span class="label reveal">Área privada</span>
+            <h1 class="page-title reveal" style="margin-top: 16px">Portal del cliente</h1>
+            <p class="muted page-intro reveal">
+              Desde aquí cada paciente puede revisar citas, descargar facturas y acceder a recursos asignados.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div id="auth-block" class="grid-2 reveal">
+              <article class="form-shell">
+                <h2 style="font-size: 1.5rem">Iniciar sesión</h2>
+                <p class="muted" style="margin-top: 8px">Accede con tus credenciales de paciente activo.</p>
+                <form id="login-form" style="margin-top: 16px">
+                  <div class="field">
+                    <label for="login-email">Correo</label>
+                    <input id="login-email" type="email" name="email" placeholder="tu@email.com" />
+                  </div>
+                  <div class="field">
+                    <label for="login-password">Contraseña</label>
+                    <input id="login-password" type="password" name="password" placeholder="••••••••" />
+                  </div>
+                  <span class="error" data-error="login">Credenciales inválidas.</span>
+                  <button class="btn btn-primary" type="submit">Entrar al portal</button>
+                </form>
+              </article>
+
+              <article class="form-shell">
+                <h2 style="font-size: 1.5rem">Crear cuenta</h2>
+                <p class="muted" style="margin-top: 8px">Disponible para pacientes que ya agendaron su primera cita.</p>
+                <form id="register-form" style="margin-top: 16px">
+                  <div class="field">
+                    <label for="register-name">Nombre completo</label>
+                    <input id="register-name" type="text" name="name" placeholder="Nombre y apellidos" />
+                  </div>
+                  <div class="field">
+                    <label for="register-email">Correo</label>
+                    <input id="register-email" type="email" name="email" placeholder="tu@email.com" />
+                  </div>
+                  <div class="field">
+                    <label for="register-password">Contraseña</label>
+                    <input id="register-password" type="password" name="password" placeholder="Mínimo 8 caracteres" />
+                  </div>
+                  <span class="error" data-error="register">No fue posible crear la cuenta.</span>
+                  <button class="btn btn-primary" type="submit">Crear cuenta</button>
+                </form>
+              </article>
+            </div>
+
+            <section id="dashboard" class="panel reveal" style="display: none">
+              <div style="display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap">
+                <div>
+                  <h2 style="font-size: 1.5rem">Hola, <span data-user-name>Paciente</span></h2>
+                  <p class="muted">Gestiona tus sesiones, pagos y recursos terapéuticos.</p>
+                </div>
+                <button id="logout-btn" class="btn btn-outline" type="button">Cerrar sesión</button>
+              </div>
+
+              <div class="portal-layout" style="margin-top: 18px">
+                <div class="panel" style="padding: 14px">
+                  <div class="portal-nav">
+                    <button class="portal-tab active" type="button" data-target="panel-citas" aria-selected="true">Mis citas</button>
+                    <button class="portal-tab" type="button" data-target="panel-facturas" aria-selected="false">Facturas</button>
+                    <button class="portal-tab" type="button" data-target="panel-recursos" aria-selected="false">Recursos</button>
+                    <button class="portal-tab" type="button" data-target="panel-ajustes" aria-selected="false">Ajustes</button>
+                  </div>
+                </div>
+
+                <div class="panel" style="padding: 14px">
+                  <section class="portal-content active" id="panel-citas">
+                    <h3>Historial y próximas citas</h3>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Fecha</th>
+                          <th>Modalidad</th>
+                          <th>Estado</th>
+                          <th>Acción</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>14/03/2026 - 10:00 a.m.</td>
+                          <td>Virtual</td>
+                          <td>Confirmada</td>
+                          <td><a data-link="ghlCalendar" href="#">Reagendar</a></td>
+                        </tr>
+                        <tr>
+                          <td>07/03/2026 - 10:00 a.m.</td>
+                          <td>Virtual</td>
+                          <td>Completada</td>
+                          <td><a href="admision.html">Ver notas</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <a class="btn btn-primary" style="margin-top: 10px" data-link="ghlCalendar" href="#">Agendar próxima sesión</a>
+                  </section>
+
+                  <section class="portal-content" id="panel-facturas">
+                    <h3>Facturas y pagos</h3>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Factura</th>
+                          <th>Fecha</th>
+                          <th>Valor</th>
+                          <th>Descarga</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#MP-2026-014</td>
+                          <td>07/03/2026</td>
+                          <td>$180.000 COP</td>
+                          <td><a href="#">PDF</a></td>
+                        </tr>
+                        <tr>
+                          <td>#MP-2026-009</td>
+                          <td>28/02/2026</td>
+                          <td>$180.000 COP</td>
+                          <td><a href="#">PDF</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="helper">En producción, conecta este módulo con Stripe y el CRM para descarga automática real.</p>
+                  </section>
+
+                  <section class="portal-content" id="panel-recursos">
+                    <h3>Recursos terapéuticos asignados</h3>
+                    <div class="grid-2">
+                      <article class="card">
+                        <h4 style="font-size: 1.15rem">Workbook de regulación emocional</h4>
+                        <p class="muted">Ejercicios para identificar detonantes y registrar avances semanales.</p>
+                        <a class="btn btn-soft" style="margin-top: 12px" href="#">Descargar PDF</a>
+                      </article>
+                      <article class="card">
+                        <h4 style="font-size: 1.15rem">Audio de respiración guiada</h4>
+                        <p class="muted">Práctica de 6 minutos para bajar activación en momentos de crisis.</p>
+                        <a class="btn btn-soft" style="margin-top: 12px" href="#">Escuchar audio</a>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="portal-content" id="panel-ajustes">
+                    <h3>Gestión de cuenta</h3>
+                    <ul class="list-check">
+                      <li>Actualizar correo y teléfono de contacto.</li>
+                      <li>Cambiar modalidad preferida de atención.</li>
+                      <li>Configurar recordatorios por WhatsApp, SMS o correo.</li>
+                      <li>Solicitar derivación a colega si tu caso requiere otro perfil clínico.</li>
+                    </ul>
+                    <a class="btn btn-outline" style="margin-top: 12px" href="contacto.html">Solicitar cambio</a>
+                  </section>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <h3 class="footer-title">Dra. Maribel Peña Duran</h3>
+            <p>Portal de autogestión para pacientes con historial, facturas y materiales clínicos.</p>
+            <p style="margin-top: 10px">No. licencia profesional: [COLPSIC-00000]</p>
+          </div>
+          <div>
+            <h3 class="footer-title">Navegación</h3>
+            <ul>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="admision.html">Admisión</a></li>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-title">Legal y contacto</h3>
+            <ul>
+              <li><a href="legal.html">Privacidad y términos</a></li>
+              <li><a href="mailto:contacto@dramaribel.com">contacto@dramaribel.com</a></li>
+              <li><a data-link="whatsappBusiness" href="#">WhatsApp profesional</a></li>
+              <li>© <span data-year></span> Todos los derechos reservados</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/portal.js"></script>
+  </body>
+</html>
