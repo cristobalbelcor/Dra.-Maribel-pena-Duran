@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustración herramientas</title>
+  <desc id="desc">Ondas de respiración y recursos prácticos</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#160b76"/>
+      <stop offset="54%" stop-color="#3147bf"/>
+      <stop offset="100%" stop-color="#2293ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#07134c" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <ellipse cx="1060" cy="120" rx="230" ry="120" fill="#7b63ff" opacity="0.2"/>
+  <ellipse cx="170" cy="560" rx="250" ry="130" fill="#70d0ff" opacity="0.18"/>
+  <path d="M-40 504c250-80 410 72 680 18 150-30 332-50 560-78v256H-40z" fill="#9cdeff" opacity="0.19"/>
+
+  <g filter="url(#shadow)">
+    <path d="M260 418c76-66 188-66 264 0" fill="none" stroke="#f8fbff" stroke-width="12" stroke-linecap="round"/>
+    <path d="M229 376c96-90 230-90 326 0" fill="none" stroke="#f8fbff" stroke-width="10" stroke-linecap="round" stroke-opacity="0.86"/>
+    <path d="M197 336c118-112 274-112 392 0" fill="none" stroke="#f8fbff" stroke-width="8" stroke-linecap="round" stroke-opacity="0.7"/>
+    <circle cx="392" cy="450" r="18" fill="#f8fbff"/>
+
+    <rect x="650" y="250" width="292" height="250" rx="28" fill="#f8fbff" fill-opacity="0.14"/>
+    <line x1="700" y1="322" x2="889" y2="322" stroke="#f8fbff" stroke-width="11" stroke-linecap="round"/>
+    <line x1="700" y1="365" x2="860" y2="365" stroke="#f8fbff" stroke-width="11" stroke-linecap="round"/>
+    <line x1="700" y1="408" x2="825" y2="408" stroke="#f8fbff" stroke-width="11" stroke-linecap="round"/>
+
+    <circle cx="980" cy="220" r="42" fill="#f8fbff" fill-opacity="0.24"/>
+    <path d="M980 193v54M953 220h54" stroke="#f8fbff" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>
