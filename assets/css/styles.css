@@ -831,6 +831,70 @@ textarea:focus {
   display: block;
 }
 
+.contact-section {
+  padding-top: 36px;
+}
+
+.contact-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.contact-main-card {
+  background: linear-gradient(160deg, #ffffff, #f6f9ff);
+  border: 1px solid #d3e3ff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 30px;
+}
+
+.contact-consents {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-side {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-panel {
+  background: linear-gradient(165deg, #ffffff, #f4f8ff);
+  border: 1px solid #d3e3ff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+}
+
+.contact-panel h3 {
+  margin-bottom: 4px;
+}
+
+.contact-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-list {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+  color: #2f4873;
+}
+
+.contact-list li {
+  line-height: 1.5;
+}
+
+.contact-list a {
+  color: #204f98;
+  font-weight: 600;
+}
+
 .panel {
   background: linear-gradient(160deg, #ffffff, #f3f7ff);
   border: 1px solid #d4e3ff;
@@ -966,6 +1030,7 @@ textarea:focus {
 @media (max-width: 1060px) {
   .hero-grid,
   .split,
+  .contact-shell,
   .portal-layout,
   .footer-grid,
   .cta-band {

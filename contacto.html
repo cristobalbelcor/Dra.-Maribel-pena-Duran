@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=12" />
 </head>
 
 <body>
@@ -54,98 +54,95 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="container split">
-          <article class="form-shell reveal">
-            <h2 style="font-size: 1.6rem">Formulario de contacto</h2>
-            <p class="muted" style="margin-top: 8px">Respuesta estimada en menos de 24 horas hábiles.</p>
+      <section class="section contact-section">
+        <div class="container">
+          <div class="contact-shell reveal">
+            <article class="contact-main-card">
+              <span class="label">Solicitud de cita</span>
+              <h2 style="font-size: clamp(1.55rem, 3vw, 2rem); margin-top: 10px">Formulario de contacto clínico</h2>
+              <p class="muted" style="margin-top: 8px">Completa este formulario y te responderé en menos de 24 horas hábiles.</p>
 
-            <form data-form data-required="name,email,phone,message,consent_privacy,consent_terms"
-              data-storage="dra-maribel-contactos">
-              <div class="success-banner" data-success>
-                Tu mensaje fue enviado correctamente. En breve recibirás respuesta por correo o WhatsApp.
-              </div>
-
-              <div class="grid-form">
-                <div class="field">
-                  <label for="name">Nombre completo</label>
-                  <input id="name" name="name" type="text" placeholder="Ej. Laura Pérez" />
-                  <span class="error" data-error="name">Ingresa tu nombre.</span>
+              <form data-form data-required="name,email,phone,message,consent_privacy,consent_terms"
+                data-storage="dra-maribel-contactos">
+                <div class="success-banner" data-success>
+                  Tu mensaje fue enviado correctamente. En breve recibirás respuesta por correo o WhatsApp.
                 </div>
-                <div class="field">
-                  <label for="email">Correo electrónico</label>
-                  <input id="email" name="email" type="email" placeholder="tu@email.com" />
-                  <span class="error" data-error="email">Ingresa un correo válido.</span>
-                </div>
-                <div class="field">
-                  <label for="phone">Teléfono / WhatsApp</label>
-                  <input id="phone" name="phone" type="tel" placeholder="+57 300 000 0000" />
-                  <span class="error" data-error="phone">Ingresa un número de contacto.</span>
-                </div>
-                <div class="field">
-                  <label for="service">Servicio de interés</label>
-                  <select id="service" name="service">
-                    <option value="">Selecciona una opción</option>
-                    <option>Consulta Individual</option>
-                    <option>Terapia de Pareja</option>
-                    <option>Paquete de Sesiones</option>
-                    <option>Certificado / Concepto Clínico</option>
-                  </select>
-                </div>
-                <div class="field full">
-                  <label for="message">Motivo de consulta</label>
-                  <textarea id="message" name="message"
-                    placeholder="Cuéntame brevemente qué te gustaría trabajar en terapia"></textarea>
-                  <span class="error" data-error="message">Describe tu motivo de consulta.</span>
-                </div>
-              </div>
 
-              <label class="check-row">
-                <input type="checkbox" name="consent_privacy" />
-                <span>
-                  Acepto el tratamiento de mis datos personales conforme a la política de privacidad y Ley 1581 de 2012.
-                </span>
-              </label>
-              <span class="error" data-error="consent_privacy">Debes aceptar la política de privacidad.</span>
+                <div class="grid-form">
+                  <div class="field">
+                    <label for="name">Nombre completo</label>
+                    <input id="name" name="name" type="text" placeholder="Ej. Laura Pérez" />
+                    <span class="error" data-error="name">Ingresa tu nombre.</span>
+                  </div>
+                  <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" placeholder="tu@email.com" />
+                    <span class="error" data-error="email">Ingresa un correo válido.</span>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Teléfono / WhatsApp</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+57 300 000 0000" />
+                    <span class="error" data-error="phone">Ingresa un número de contacto.</span>
+                  </div>
+                  <div class="field">
+                    <label for="service">Servicio de interés</label>
+                    <select id="service" name="service">
+                      <option value="">Selecciona una opción</option>
+                      <option>Consulta Individual</option>
+                      <option>Terapia de Pareja</option>
+                      <option>Paquete de Sesiones</option>
+                      <option>Certificado / Concepto Clínico</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="message">Motivo de consulta</label>
+                    <textarea id="message" name="message"
+                      placeholder="Cuéntame brevemente qué te gustaría trabajar en terapia"></textarea>
+                    <span class="error" data-error="message">Describe tu motivo de consulta.</span>
+                  </div>
+                </div>
 
-              <label class="check-row">
-                <input type="checkbox" name="consent_terms" />
-                <span>
-                  Acepto la política de cancelación (50% del valor si se cancela con menos de 24 horas de anticipación).
-                </span>
-              </label>
-              <span class="error" data-error="consent_terms">Debes aceptar los términos de cancelación.</span>
+                <div class="contact-consents">
+                  <label class="check-row">
+                    <input type="checkbox" name="consent_privacy" />
+                    <span>
+                      Acepto el tratamiento de mis datos personales conforme a la política de privacidad y Ley 1581 de 2012.
+                    </span>
+                  </label>
+                  <span class="error" data-error="consent_privacy">Debes aceptar la política de privacidad.</span>
 
-              <button class="btn btn-primary" type="submit">Enviar solicitud</button>
-              <p class="helper">Al enviar este formulario aceptas ser contactado por correo, SMS o WhatsApp.</p>
-            </form>
-          </article>
+                  <label class="check-row">
+                    <input type="checkbox" name="consent_terms" />
+                    <span>
+                      Acepto la política de cancelación (50% del valor si se cancela con menos de 24 horas de anticipación).
+                    </span>
+                  </label>
+                  <span class="error" data-error="consent_terms">Debes aceptar los términos de cancelación.</span>
+                </div>
 
-          <div class="reveal" style="display: grid; gap: 18px">
-            <article class="card">
-              <h3>Agenda directa</h3>
-              <p class="muted">Reserva tu cita en línea con disponibilidad actualizada en tiempo real.</p>
-              <a class="btn btn-primary" style="margin-top: 12px" data-link="ghlCalendar" href="#">Abrir calendario</a>
+                <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+                <p class="helper">Al enviar este formulario aceptas ser contactado por correo, SMS o WhatsApp.</p>
+              </form>
             </article>
-            <article class="card">
-              <h3>Canales de atención</h3>
-              <ul class="list-check">
-                <li>Correo: <a href="mailto:maribelpsicologaclinica@gmail.com">maribelpsicologaclinica@gmail.com</a></li>
-                <li>WhatsApp profesional: <a href="https://wa.me/573505828278">+57 350 582 8278</a></li>
-                <li>Horario: lunes a viernes 1:00 p.m., 6:00 p.m., 7:00 p.m., 8:00 p.m. y 9:00 p.m.</li>
-                <li>Horario: sábados 3:00 p.m., 4:00 p.m., 5:00 p.m. y 6:00 p.m.</li>
-                <li>Horario: domingos 9:00 a.m., 10:00 a.m. y 11:00 a.m.</li>
-                <li>Modalidad: 100% virtual.</li>
-              </ul>
-              <a class="btn btn-soft" style="margin-top: 12px" data-link="whatsappBusiness" href="#">Escribir por
-                WhatsApp</a>
-            </article>
-            <article class="card">
-              <h3>Automatizaciones activas</h3>
-              <p class="muted">
-                Confirmación inmediata + recordatorios a 24h y 1h por WhatsApp, SMS y correo para reducir inasistencia.
-              </p>
-            </article>
+
+            <aside class="contact-side">
+              <article class="contact-panel">
+                <h3>Agenda y canales de atención</h3>
+                <p class="muted" style="margin-top: 6px">Selecciona el canal que prefieras para iniciar tu proceso.</p>
+                <div class="contact-actions">
+                  <a class="btn btn-primary" data-link="ghlCalendar" href="#">Agendar cita</a>
+                  <a class="btn btn-soft" data-link="whatsappBusiness" href="#">Escribir por WhatsApp</a>
+                </div>
+                <ul class="contact-list">
+                  <li><strong>Correo:</strong> <a href="mailto:maribelpsicologaclinica@gmail.com">maribelpsicologaclinica@gmail.com</a></li>
+                  <li><strong>WhatsApp:</strong> <a href="https://wa.me/573505828278">+57 350 582 8278</a></li>
+                  <li><strong>Lunes a viernes:</strong> 1:00 p.m., 6:00 p.m., 7:00 p.m., 8:00 p.m. y 9:00 p.m.</li>
+                  <li><strong>Sábados:</strong> 3:00 p.m., 4:00 p.m., 5:00 p.m. y 6:00 p.m.</li>
+                  <li><strong>Domingos:</strong> 9:00 a.m., 10:00 a.m. y 11:00 a.m.</li>
+                  <li><strong>Modalidad:</strong> 100% virtual.</li>
+                </ul>
+              </article>
+            </aside>
           </div>
         </div>
       </section>
