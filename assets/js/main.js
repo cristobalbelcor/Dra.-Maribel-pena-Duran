@@ -34,6 +34,118 @@
     }
   });
 
+  function isWhatsAppUrl(url) {
+    return /wa\.me|api\.whatsapp\.com/i.test(url || "");
+  }
+
+  function cleanText(value) {
+    return (value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function getStoredContactName() {
+    try {
+      const key = "dra-maribel-wa-contact-name";
+      const savedName = cleanText(localStorage.getItem(key));
+      if (savedName) {
+        return savedName;
+      }
+
+      const formStores = ["dra-maribel-contactos", "dra-maribel-admision", "dra-maribel-forms"];
+      for (const storeKey of formStores) {
+        const rows = JSON.parse(localStorage.getItem(storeKey) || "[]");
+        if (!Array.isArray(rows)) {
+          continue;
+        }
+        for (let i = rows.length - 1; i >= 0; i -= 1) {
+          const name = cleanText(rows[i] && rows[i].name);
+          if (name) {
+            localStorage.setItem(key, name);
+            return name;
+          }
+        }
+      }
+    } catch (_error) {
+      return "";
+    }
+    return "";
+  }
+
+  function resolveService(anchor) {
+    const explicit = cleanText(anchor.getAttribute("data-wa-service"));
+    if (explicit) {
+      return explicit;
+    }
+
+    const formService = document.querySelector("#service");
+    if (formService && cleanText(formService.value)) {
+      return cleanText(formService.value);
+    }
+
+    const scope = anchor.closest(".pricing-card, .blog-card, .card, .cta-band, .hero-copy, article, section");
+    if (scope) {
+      const heading = scope.querySelector("h3, h2, h1");
+      if (heading) {
+        return cleanText(heading.textContent);
+      }
+    }
+
+    const label = cleanText(anchor.textContent).toLowerCase();
+    if (label.includes("pareja")) {
+      return "Terapia de pareja";
+    }
+    if (label.includes("guía") || label.includes("pdf")) {
+      return "Guía PDF de respiración";
+    }
+    if (label.includes("agendar") || label.includes("reservar") || label.includes("valoración") || label.includes("llamada")) {
+      return "Valoración inicial";
+    }
+    return "Valoración inicial";
+  }
+
+  function attachWhatsAppMessage(anchor) {
+    if (!anchor || anchor.dataset.waBound === "1") {
+      return;
+    }
+
+    const href = anchor.getAttribute("href") || "";
+    if (!isWhatsAppUrl(href)) {
+      return;
+    }
+
+    anchor.dataset.waBound = "1";
+    anchor.setAttribute("target", "_blank");
+    anchor.setAttribute("rel", "noopener noreferrer");
+
+    anchor.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let contactName = getStoredContactName();
+      if (!contactName) {
+        contactName = cleanText(window.prompt("Escribe tu nombre para enviar el mensaje por WhatsApp:"));
+      }
+
+      if (!contactName) {
+        return;
+      }
+
+      try {
+        localStorage.setItem("dra-maribel-wa-contact-name", contactName);
+      } catch (_error) {
+        // no-op
+      }
+
+      const service = resolveService(anchor);
+      const message = `Hola, Maribel Peña Duran. Mi nombre es ${contactName} y estoy interesado(a) en el servicio "${service}".`;
+      const separator = href.includes("?") ? "&" : "?";
+      const waUrl = `${href}${separator}text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  document.querySelectorAll("a").forEach((anchor) => {
+    attachWhatsAppMessage(anchor);
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -54,11 +166,10 @@
 
   // Inject WhatsApp Floating Button
   const waNumber = (window.SITE_CONFIG && window.SITE_CONFIG.whatsappBusiness) ? window.SITE_CONFIG.whatsappBusiness : "https://wa.me/573505828278";
-  const waMessage = encodeURIComponent("Hola, Maribel Peña Duran. Me interesa agendar una sesión de [Individual / Pareja / Obesidad / Certificado]. Mi nombre es [Nombre del paciente].");
-  const waUrl = `${waNumber}?text=${waMessage}`;
 
   const waBtn = document.createElement('a');
-  waBtn.href = waUrl;
+  waBtn.href = waNumber;
+  waBtn.setAttribute("data-wa-service", "Valoración inicial");
   waBtn.className = 'whatsapp-float';
   waBtn.target = '_blank';
   waBtn.rel = 'noopener noreferrer';
@@ -67,4 +178,5 @@
     Agendar mi valoración por WhatsApp
   `;
   document.body.appendChild(waBtn);
+  attachWhatsAppMessage(waBtn);
 })();
