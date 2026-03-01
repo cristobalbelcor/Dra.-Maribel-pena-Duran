@@ -199,4 +199,161 @@
     waIcon.style.fill = "currentColor";
   }
   attachWhatsAppMessage(waBtn);
+
+  // Breathing sponsor button + modal (global)
+  const breathBtn = document.createElement("button");
+  breathBtn.type = "button";
+  breathBtn.className = "sponsor-breath-btn";
+  breathBtn.setAttribute("aria-label", "Abrir ejercicio de respiración");
+  breathBtn.innerHTML = `
+    <svg class="sponsor-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09A6 6 0 0116.5 3C19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/>
+    </svg>
+    <span>Respira</span>
+  `;
+  document.body.appendChild(breathBtn);
+
+  const breathOverlay = document.createElement("div");
+  breathOverlay.id = "breath-modal-overlay";
+  breathOverlay.className = "breath-modal-overlay";
+  breathOverlay.innerHTML = `
+    <div class="breath-modal" role="dialog" aria-modal="true" aria-labelledby="breath-title">
+      <button type="button" class="breath-close" data-breath-close aria-label="Cerrar">&times;</button>
+      <div class="breath-head">
+        <h3 class="breath-title" id="breath-title">Respiración 4-7-8</h3>
+        <p class="breath-subtitle">Técnica breve para reducir ansiedad y recuperar foco</p>
+      </div>
+      <div class="breath-stage">
+        <div class="breath-circle" data-breath-circle>
+          <div class="breath-core"><span data-breath-count></span></div>
+        </div>
+      </div>
+      <p class="breath-instruction" data-breath-instruction>¿Lista(o) para empezar?</p>
+      <div class="breath-progress"><div class="breath-progress-bar" data-breath-progress></div></div>
+      <div class="breath-actions">
+        <button type="button" class="breath-toggle" data-breath-toggle>Iniciar respiración</button>
+      </div>
+      <p class="breath-note"><strong>Cómo funciona:</strong> Inhala por nariz 4 segundos, sostiene 7 segundos y exhala 8 segundos. Repite 3 ciclos.</p>
+    </div>
+  `;
+  document.body.appendChild(breathOverlay);
+
+  const breathCircle = breathOverlay.querySelector("[data-breath-circle]");
+  const breathCount = breathOverlay.querySelector("[data-breath-count]");
+  const breathInstruction = breathOverlay.querySelector("[data-breath-instruction]");
+  const breathProgress = breathOverlay.querySelector("[data-breath-progress]");
+  const breathToggle = breathOverlay.querySelector("[data-breath-toggle]");
+  const breathClose = breathOverlay.querySelector("[data-breath-close]");
+
+  let breathActive = false;
+  let breathPhase = "inhale";
+  let breathCountStep = 1;
+  let breathCycles = 0;
+  let breathTimer = null;
+  const breathDurations = { inhale: 4, hold: 7, exhale: 8 };
+
+  function openBreathModal() {
+    breathOverlay.classList.add("active");
+  }
+
+  function stopBreathing(resetCycle = true) {
+    breathActive = false;
+    clearTimeout(breathTimer);
+    if (resetCycle) {
+      breathPhase = "inhale";
+      breathCountStep = 1;
+      breathCycles = 0;
+    }
+    breathCircle.className = "breath-circle";
+    breathCount.textContent = "";
+    breathInstruction.textContent = "¿Lista(o) para empezar?";
+    breathProgress.style.width = "0%";
+    breathToggle.textContent = "Iniciar respiración";
+  }
+
+  function closeBreathModal() {
+    breathOverlay.classList.remove("active");
+    stopBreathing();
+  }
+
+  function renderBreathPhase() {
+    const phaseDuration = breathDurations[breathPhase];
+    breathProgress.style.width = `${(breathCountStep / phaseDuration) * 100}%`;
+    breathCount.textContent = String(breathCountStep);
+    breathCircle.className = `breath-circle breath-${breathPhase}`;
+    if (breathPhase === "inhale") {
+      breathInstruction.textContent = "Inhala...";
+    } else if (breathPhase === "hold") {
+      breathInstruction.textContent = "Sostén...";
+    } else {
+      breathInstruction.textContent = "Exhala...";
+    }
+  }
+
+  function runBreathing() {
+    if (!breathActive) {
+      return;
+    }
+    renderBreathPhase();
+
+    if (breathCountStep < breathDurations[breathPhase]) {
+      breathTimer = setTimeout(() => {
+        breathCountStep += 1;
+        runBreathing();
+      }, 1000);
+      return;
+    }
+
+    breathTimer = setTimeout(() => {
+      breathCountStep = 1;
+      if (breathPhase === "inhale") {
+        breathPhase = "hold";
+      } else if (breathPhase === "hold") {
+        breathPhase = "exhale";
+      } else {
+        breathPhase = "inhale";
+        breathCycles += 1;
+      }
+
+      if (breathCycles >= 3) {
+        stopBreathing(false);
+        breathInstruction.textContent = "Ejercicio completo. Respira con calma.";
+        return;
+      }
+      runBreathing();
+    }, 1000);
+  }
+
+  breathBtn.addEventListener("click", openBreathModal);
+  breathClose.addEventListener("click", closeBreathModal);
+  breathOverlay.addEventListener("click", (event) => {
+    if (event.target === breathOverlay) {
+      closeBreathModal();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && breathOverlay.classList.contains("active")) {
+      closeBreathModal();
+    }
+  });
+
+  breathToggle.addEventListener("click", () => {
+    if (breathActive) {
+      stopBreathing();
+      return;
+    }
+    breathActive = true;
+    breathPhase = "inhale";
+    breathCountStep = 1;
+    breathCycles = 0;
+    breathToggle.textContent = "Detener ejercicio";
+    runBreathing();
+  });
+
+  document.querySelectorAll("[data-open-breathing]").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openBreathModal();
+    });
+  });
 })();
