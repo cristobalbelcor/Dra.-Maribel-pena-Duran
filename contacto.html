@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=12" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 </head>
 
 <body>
@@ -61,6 +61,10 @@
               <span class="label">Solicitud de cita</span>
               <h2 style="font-size: clamp(1.55rem, 3vw, 2rem); margin-top: 10px">Formulario de contacto clínico</h2>
               <p class="muted" style="margin-top: 8px">Completa este formulario y te responderé en menos de 24 horas hábiles.</p>
+              <article id="contact-context" class="contact-context" hidden>
+                <h3 id="contact-context-title" class="contact-context-title"></h3>
+                <p id="contact-context-body" class="contact-context-body"></p>
+              </article>
 
               <form data-form data-required="name,email,phone,message,consent_privacy,consent_terms"
                 data-storage="dra-maribel-contactos">
@@ -178,7 +182,7 @@
   </div>
 
   <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/main.js?v=7"></script>
+  <script src="assets/js/main.js?v=8"></script>
   <script src="assets/js/forms.js"></script>
 </body>
 

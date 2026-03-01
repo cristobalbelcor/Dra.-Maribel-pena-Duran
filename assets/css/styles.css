@@ -850,6 +850,28 @@ textarea:focus {
   padding: 30px;
 }
 
+.contact-context {
+  margin-top: 16px;
+  margin-bottom: 18px;
+  padding: 16px 17px;
+  border-radius: 14px;
+  border: 1px solid #cfe1ff;
+  background: linear-gradient(145deg, #eef5ff, #e6f1ff);
+}
+
+.contact-context-title {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #193f79;
+}
+
+.contact-context-body {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  color: #315684;
+  line-height: 1.6;
+}
+
 .contact-consents {
   display: grid;
   gap: 8px;

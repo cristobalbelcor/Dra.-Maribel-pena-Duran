@@ -146,6 +146,48 @@
     attachWhatsAppMessage(anchor);
   });
 
+  function applyContactContext() {
+    const form = document.querySelector('form[data-storage="dra-maribel-contactos"]');
+    if (!form) {
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const topic = cleanText(params.get("topic"));
+    const contexts = {
+      empezar_terapia: {
+        title: "Orientación inicial: ¿Cuándo es momento de empezar terapia?",
+        body: "Si sientes que llevas semanas o meses con ansiedad persistente, irritabilidad, agotamiento emocional, dificultades para dormir o conflictos repetitivos en tus relaciones, no necesitas esperar a estar en crisis para pedir ayuda. Como psicóloga clínica, te recomiendo iniciar terapia cuando el malestar ya está afectando tu bienestar, tu trabajo o tu vida personal. En consulta te ayudo a identificar patrones de pensamiento y conducta, construir herramientas concretas y definir un plan claro de intervención para recuperar equilibrio emocional.",
+        service: "Consulta Individual",
+        message: "Quiero orientación sobre cuándo empezar terapia. He notado señales emocionales persistentes y deseo una valoración clínica inicial para definir el mejor plan de trabajo."
+      }
+    };
+
+    const context = contexts[topic];
+    if (!context) {
+      return;
+    }
+
+    const contextBox = document.getElementById("contact-context");
+    const contextTitle = document.getElementById("contact-context-title");
+    const contextBody = document.getElementById("contact-context-body");
+    if (contextBox && contextTitle && contextBody) {
+      contextTitle.textContent = context.title;
+      contextBody.textContent = context.body;
+      contextBox.hidden = false;
+    }
+
+    const serviceField = document.getElementById("service");
+    if (serviceField && !cleanText(serviceField.value)) {
+      serviceField.value = context.service;
+    }
+
+    const messageField = document.getElementById("message");
+    if (messageField && !cleanText(messageField.value)) {
+      messageField.value = context.message;
+    }
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -163,6 +205,7 @@
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = String(new Date().getFullYear());
   });
+  applyContactContext();
 
   // Inject WhatsApp Floating Button
   const waNumber = (window.SITE_CONFIG && window.SITE_CONFIG.whatsappBusiness) ? window.SITE_CONFIG.whatsappBusiness : "https://wa.me/573505828278";
