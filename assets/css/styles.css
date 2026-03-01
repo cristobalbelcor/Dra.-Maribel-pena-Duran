@@ -182,13 +182,13 @@ h4 {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-weight: 700;
 }
 
 .brand-mark {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   display: inline-flex;
   align-items: center;
   justify-content: center;

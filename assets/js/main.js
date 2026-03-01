@@ -54,7 +54,7 @@
 
   // Inject WhatsApp Floating Button
   const waNumber = (window.SITE_CONFIG && window.SITE_CONFIG.whatsappBusiness) ? window.SITE_CONFIG.whatsappBusiness : "https://wa.me/573505828278";
-  const waMessage = encodeURIComponent("Hola, Dra. Maribel Peña Duran. Me interesa agendar una sesión de [Individual / Pareja / Obesidad / Certificado]. Mi nombre es [Nombre del paciente].");
+  const waMessage = encodeURIComponent("Hola, Maribel Peña Duran. Me interesa agendar una sesión de [Individual / Pareja / Obesidad / Certificado]. Mi nombre es [Nombre del paciente].");
   const waUrl = `${waNumber}?text=${waMessage}`;
 
   const waBtn = document.createElement('a');
